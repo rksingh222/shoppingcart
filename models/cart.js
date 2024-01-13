@@ -108,21 +108,25 @@ module.exports = class Cart {
 
     static getProducts(cb) {
         fs.readFile(p, (err, fileContent) => {
-            if (fileContent.length !== 0) {
-                const carts = JSON.parse(fileContent);
-                if (!err) {
-                    console.log(carts);
-                    cb(carts);
-                } else {
+            if(!err){
+                if (fileContent.length !== 0) {
+                    const carts = JSON.parse(fileContent);
+                    if (!err) {
+                        console.log(carts);
+                        cb(carts);
+                    } else {
+                        console.log(err);
+                        console.log("Inside get products - sending null")
+                        cb(null);
+                    }
+                }
+                else{
                     console.log(err);
                     console.log("Inside get products - sending null")
-                    cb(null);
+                    cb(null)
                 }
-            }
-            else{
+            }else{
                 console.log(err);
-                console.log("Inside get products - sending null")
-                cb(null)
             }
         })
     }
