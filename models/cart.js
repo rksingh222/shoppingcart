@@ -1,11 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 
-const p = path.join(
+/*const p = path.join(
     path.dirname(process.mainModule.filename),
     'tmp',
     'cart.json'
-);
+);*/
+const p = path.join("/tmp","data.json");
 // Here products : [{id:12345, qty: 1}]
 
 module.exports = class Cart {

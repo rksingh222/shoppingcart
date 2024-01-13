@@ -26,3 +26,6 @@ app.use(errorController.get404);
 app.listen(PORT,() =>{
     console.log(`Listening on PORT ${PORT}`);
 });
+
+const filePath = path.join("/tmp","data.json");
+console.log(filePath);
