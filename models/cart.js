@@ -127,6 +127,25 @@ module.exports = class Cart {
                 }
             }else{
                 console.log(err);
+                let cart = { products: [], totalPrice: 0 }
+                fs.writeFile(p, JSON.stringify(cart), err => {
+                    if(err){
+                        console.log(err);
+                    }
+                    else{
+                        fs.readFile(p, (err, fileContent) => {
+                            const carts = JSON.parse(fileContent);
+                            if (!err) {
+                                console.log(carts);
+                                cb(carts);
+                            } else {
+                                console.log(err);
+                                console.log("Inside get products - sending null")
+                                cb(null);
+                            }
+                        })
+                    }
+               })
             }
         })
     }
