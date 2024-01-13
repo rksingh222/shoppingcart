@@ -6,7 +6,7 @@ const path = require('path');
     'tmp',
     'cart.json'
 );*/
-const p = path.join("/tmp","data.json");
+const p = path.join("/tmp","cart.json");
 // Here products : [{id:12345, qty: 1}]
 
 module.exports = class Cart {
